@@ -4,13 +4,13 @@ var mongoose = require('mongoose');
 var cors =require('cors');
 var TasksRouter = require('./Routes/tasksRoute');
 
-mongoose.connect("mongodb://localhost:27017/Tasks" ,err => {
-    if(err){
-        console.error(`Eroro ! ${err}`);
-    }else{
-        console.log(`Connected to MongoDB`)
-    }
-});
+mongoose.connect(
+    "mongodb+srv://Rahma:0123456789rahma@cluster0-2g6em.mongodb.net/test?retryWrites=true&w=majority"
+  ).then(() => {
+    console.log("Connected to database!");
+  }).catch(() => {
+    console.log("Connection failed!");
+  });
 
  
 const app = express();
