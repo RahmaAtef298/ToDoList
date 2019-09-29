@@ -24,7 +24,7 @@
       
       
       <div class="tasklist">
-          <div class="task-list">
+          <div class="task-list" *ngIf="tasks.length > 0 && !isLoading">
               <div class="row ml-1 mt-1" style="width: 25rem;" *ngFor="let task of tasks">
                   <div class="col-sm-1">
                     <input type="checkbox" [checked]="task.isDone" (click)="updateTask(task)">
@@ -38,6 +38,7 @@
               </div>
           </div>
       </div>
+      <p class="info-text tasklist" *ngIf="tasks.length <= 0 && !isLoading">No Tasks</p>
 </div>
    
 
