@@ -37,6 +37,10 @@ export class TasksComponent implements OnInit {
   deleteTask(taskId: string) {
     this.tasksService.deletePost(taskId);
   }
+  
+  deleteAll(){
+    this.tasksService.deleteAll();
+  }
 
   updateTask(task: Task) {
     this.tasksService.updatePost(task.id,task.title,task.isDone);
