@@ -57,6 +57,15 @@ export class TasksService {
         this.tasksUpdated.next([...this.tasks]);
       });
   }
+  
+  deleteAll(){
+    const emptyList : Task[] = [];
+    this.http.delete(`${this.tasksUrl}tasks/`)
+    .subscribe(() => {
+      this.tasks = emptyList;
+      this.tasksUpdated.next([...this.tasks]);
+    });
+  }
 
   updatePost(id: string, title: string, isDone: boolean) {
     const task: Task = { id: id, title: title, isDone: !isDone };
