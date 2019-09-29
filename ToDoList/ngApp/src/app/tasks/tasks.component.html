@@ -1,0 +1,43 @@
+<!-- <mat-card>
+  <mat-form-field>
+    <textarea matInput rows="6"></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="alert('hello !')">
+    Save
+  </button>
+</mat-card> -->
+
+<div class="text-info mt-4 text-center mb-3">
+    <h1>To Do List</h1>
+  </div>
+  
+  <div class="container">
+      <div class="card text-right mb-3 taskform" id="card" style="width: 25rem;">
+        <div class="card-body">
+          <form (submit)="addTask(TaskForm)" #TaskForm="ngForm">
+              <input type="text" name="title" ngModel required minlength="6" 
+              class="form-control mb-3" id="taskInput" placeholder="Enter Task">
+              <button type="submit" class="btn btn-info">Save</button>
+          </form>
+        </div>
+      </div>
+      
+      
+      <div class="tasklist">
+          <div class="task-list">
+              <div class="row ml-1 mt-1" style="width: 25rem;" *ngFor="let task of tasks">
+                  <div class="col-sm-1">
+                    <input type="checkbox" [checked]="task.isDone" (click)="updateTask(task)">
+                  </div>
+                  <div class="col-sm-8">
+                    {{task.title}}
+                  </div>
+                  <div class="col-sm-3">
+                      <button type="button" (click)="deleteTask(task.id)" class="btn btn-danger">Delete</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
+   
+

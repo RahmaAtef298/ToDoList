@@ -1,0 +1,9 @@
+
+.taskform{
+    margin: auto auto;
+}
+.tasklist{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
