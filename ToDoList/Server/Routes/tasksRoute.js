@@ -60,6 +60,14 @@ TasksRouter.delete('/task/:id',(req,res,next)=>{
       });
 });
 
+//Delete All 
+TasksRouter.delete('/tasks',(req,res,next)=>{
+  TasksSchema.deleteMany().then(deletedTasks => {
+      console.log(deletedTasks);
+      res.status(200).json({ message: "Tasks deleted!" });
+    });
+});
+
 //Update Task
 TasksRouter.put('/task/:id',(req,res,next)=>{
   var task = req.body;
